@@ -12,24 +12,7 @@ export default function AlbumView() {
     songs: 10,
   };
 
-  let albumArray = [
-    album,
-    album,
-    album,
-    album,
-    album,
-    album,
-    album,
-    album,
-    album,
-    album,
-    album,
-    album,
-    album,
-    album,
-    album,
-    album,
-  ];
+  let albumArray = [album, album, album, album];
 
   return (
     <View>
@@ -40,3 +23,11 @@ export default function AlbumView() {
     </View>
   );
 }
+
+const AlbumButtons = () => {
+  return (
+    <View>
+      <Button title="See More" />
+    </View>
+  );
+};

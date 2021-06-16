@@ -18,5 +18,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 8,
     marginTop: 13,
+    justifyContent: "space-around",
+    height: "100%",
   },
 });

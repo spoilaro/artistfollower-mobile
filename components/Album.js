@@ -19,8 +19,6 @@ export default function Album({ albumData }) {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    flex: 1,
     padding: 5,
     fontSize: 10,
     backgroundColor: "green",
