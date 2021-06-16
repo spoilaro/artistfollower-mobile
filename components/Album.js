@@ -1,4 +1,5 @@
 import React from "react";
+import CONSTANTS from "../Constants";
 
 import { View, Text, Image, StyleSheet } from "react-native";
 export default function Album({ albumData }) {
@@ -19,8 +20,9 @@ export default function Album({ albumData }) {
 
 const styles = StyleSheet.create({
   container: {
+    height: "95%",
     padding: 5,
     fontSize: 10,
-    backgroundColor: "green",
+    backgroundColor: CONSTANTS.COLOR.SECONDARY,
   },
 });
