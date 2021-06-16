@@ -26,6 +26,9 @@ export default function AlbumView() {
     album,
     album,
     album,
+    album,
+    album,
+    album,
   ];
 
   return (
