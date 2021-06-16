@@ -5,7 +5,7 @@ import { View, Text, Image, StyleSheet } from "react-native";
 export default function Album({ albumData }) {
   return (
     <View style={styles.container}>
-      <Image source={require("../assets/favicon.png")} />
+      <Image style={styles.image} source={require("../assets/favicon.png")} />
       <View>
         <Text className="song-name">{albumData.name}</Text>
         <Text className="artist-name">{albumData.artist}</Text>
@@ -23,6 +23,12 @@ const styles = StyleSheet.create({
     height: "95%",
     padding: 5,
     fontSize: 10,
-    backgroundColor: CONSTANTS.COLOR.SECONDARY,
+    //backgroundColor: CONSTANTS.COLOR.SECONDARY,
+    color: CONSTANTS.COLOR.TEXT,
+    flexDirection: "row",
+  },
+  image: {
+    width: 50,
+    height: 50,
   },
 });

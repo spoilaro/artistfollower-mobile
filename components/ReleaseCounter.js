@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import CONSTANTS from "../Constants";
 
 export default function ReleaseCounter() {
   return (
@@ -12,13 +13,15 @@ export default function ReleaseCounter() {
 const styles = StyleSheet.create({
   container: {
     height: 150,
-    backgroundColor: "gray",
     justifyContent: "center",
+    backgroundColor: CONSTANTS.COLOR.PRIMARY,
     paddingLeft: 10,
     borderRadius: 5,
+    fontFamily: "Montserrat",
   },
   textStyle: {
     fontSize: 40,
     textAlign: "start",
+    color: CONSTANTS.COLOR.TEXT,
   },
 });
