@@ -2,8 +2,8 @@ import React from "react";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 
 //Components
-import ReleaseCounter from "./ReleaseCounter";
-import AlbumView from "./AlbumView";
+import ReleaseCounter from "../components/ReleaseCounter";
+import AlbumView from "../components/AlbumView";
 
 export default function Home() {
   return (

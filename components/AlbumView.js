@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { View, FlatList, Text, StyleSheet, Animated } from "react-native";
 import { Button } from "react-native-elements";
 import CONSTANTS from "../Constants";
+import axios from "axios";
 
 //Components
 import Album from "./Album";
@@ -14,25 +15,27 @@ export default function AlbumView() {
     songs: 10,
   };
 
-  let albumArray = [album, album, album, album];
+  const [albumArray, setAlbumArray] = useState([]);
 
-  //Hooks
+  //OPENING ALBUMS
   const [listOpen, setListOpen] = useState(false);
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-  useEffect(() => {
-    Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 10000,
-    }).start();
-  }, [fadeAnim]);
-
   const albumListChanger = () => {
     return listOpen ? styles.openedList : styles.container;
   };
-
   const openAlbums = () => {
     setListOpen(!listOpen);
   };
+
+  //GETTING DATA
+   async function getData(){
+    const response = await axios.get("http://localhost:5001/api/dummydata");
+    console.log(response.data);
+    setAlbumArray(response.data)
+  }
+  useEffect(() => {
+    getData()
+  }, [])
+
 
   return (
     <View style={albumListChanger()}>
@@ -59,7 +62,6 @@ const styles = StyleSheet.create({
     padding: 5,
     borderRadius: 5,
     height: 200,
-    transition: "ease",
   },
 
   buttonContainer: {

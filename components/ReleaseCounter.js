@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     fontSize: 40,
-    textAlign: "start",
     color: CONSTANTS.COLOR.TEXT,
   },
 });

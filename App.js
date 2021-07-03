@@ -7,7 +7,7 @@ import { NavigationContainer } from "@react-navigation/native";
 //Components
 import Artists from "./components/Artists";
 import Settings from "./components/Settings";
-import Home from "./components/Home";
+import Home from "./screens/Home";
 
 const Tab = createBottomTabNavigator();
 
