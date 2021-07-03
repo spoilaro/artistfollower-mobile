@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 
 //Components
-import Artists from "./components/Artists";
+import Artists from "./screens/Artists";
 import Settings from "./components/Settings";
 import Home from "./screens/Home";
 
@@ -16,10 +16,11 @@ export default function App() {
     <NavigationContainer>
       <SafeAreaView />
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Artists" component={Artists} />
-        <Tab.Screen name="Settings" component={Settings} />
       </Tab.Navigator>
     </NavigationContainer>
   );
 }
+
+//<Tab.Screen name="Home" component={Home} />
+//<Tab.Screen name="Settings" component={Settings} />
