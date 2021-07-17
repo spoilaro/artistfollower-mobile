@@ -13,24 +13,24 @@ export default function Artists() {
     }
 
     async function sendSearch() {
-        const response = await axios.get({
-            url: "http://localhost:5001/api/search",
+        const response = await axios.get(`http://localhost:5001/api/_search/${searchText}`)
+        const artistId = response.data
 
-        })
+        const response2 = await axios.get(`http://localhost:5001/api/artists/${artistId}`)
 
-        console.log(response);
+        console.log(response2.data);
     }
 
     return (
 
-        <View>
-            <TextInput
-                style={styles.input}
-                placeholder="Type artist name here"
-                value={searchText}
-                onChange={handleChange}
-            />
-            <View style={styles.buttonContainer} >
+        <View style={styles.container}>
+            <View style={styles.inputContainer} >
+                <TextInput
+                    style={styles.input}
+                    placeholder="Type artist name here"
+                    value={searchText}
+                    onChange={handleChange}
+                />
 
                 <Button title="Press Me" onPress={sendSearch} />
             </View>
@@ -44,15 +44,18 @@ export default function Artists() {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: "#454545",
+        padding: 10
 
     },
     input: {
-        height: 40,
-        margin: 10,
         padding: 5,
-        borderWidth: 0.5
+        borderWidth: 0.5,
+        flex: 3
     },
-    buttonContainer: {
-        width: 100,
+    button: {
+        flex: 1
+    },
+    inputContainer: {
+        flexDirection: "row"
     }
 })
