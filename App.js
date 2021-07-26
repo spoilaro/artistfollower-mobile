@@ -3,21 +3,17 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
+import Tabs from "./navigation/Tab"
 
-//Components
-import Artists from "./screens/Artists";
-import Settings from "./components/Settings";
-import Home from "./screens/Home";
+
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer >
       <SafeAreaView />
-      <Tab.Navigator>
-        <Tab.Screen name="Artists" component={Artists} />
-      </Tab.Navigator>
+      <Tabs />
     </NavigationContainer>
   );
 }
