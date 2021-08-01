@@ -9,6 +9,8 @@ import Home from "../screens/Home";
 //Icons
 import { icons } from "../constants";
 
+//TODO Add right icons
+
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
