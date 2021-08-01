@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { View, FlatList, Text, StyleSheet, Animated } from "react-native";
 import { Button } from "react-native-elements";
-import CONSTANTS from "../Constants";
 import axios from "axios";
+import { colors } from "../constants";
 
 //Components
 import Album from "./Album";
@@ -27,15 +27,14 @@ export default function AlbumView() {
   };
 
   //GETTING DATA
-   async function getData(){
+  async function getData() {
     const response = await axios.get("http://localhost:5001/api/dummydata");
     console.log(response.data);
-    setAlbumArray(response.data)
+    setAlbumArray(response.data);
   }
   useEffect(() => {
-    getData()
-  }, [])
-
+    getData();
+  }, []);
 
   return (
     <View style={albumListChanger()}>
@@ -58,7 +57,7 @@ const AlbumButtons = ({ onClick }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: CONSTANTS.COLOR.PRIMARY,
+    backgroundColor: colors.primary,
     padding: 5,
     borderRadius: 5,
     height: 200,
@@ -71,7 +70,7 @@ const styles = StyleSheet.create({
 
   openedList: {
     height: 400,
-    backgroundColor: CONSTANTS.COLOR.PRIMARY,
+    backgroundColor: colors.primary,
     padding: 5,
     borderRadius: 5,
   },
