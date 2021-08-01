@@ -7,7 +7,7 @@ import Artists from "../screens/Artists";
 import Home from "../screens/Home";
 
 //Icons
-import { icons } from "../constants";
+import { icons, colors } from "../constants";
 
 //TODO Add right icons
 
@@ -19,6 +19,9 @@ const Tabs = () => {
       initialRouteName="Artists"
       tabBarOptions={{
         showLabel: false,
+        style: {
+          backgroundColor: colors.primary,
+        },
       }}
     >
       <Tab.Screen
