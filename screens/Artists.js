@@ -1,11 +1,21 @@
-import React, { Component, useState } from "react";
-import { Text, View, TextInput, StyleSheet, Button } from "react-native";
+import React, { useState } from "react";
+import {
+  Text,
+  View,
+  TextInput,
+  StyleSheet,
+  Button,
+  FlatList,
+} from "react-native";
 import axios from "axios";
+import ArtistButton from "../components/ArtistButton";
 import { colors } from "../constants";
 
 export default function Artists() {
   const [searchText, setSearchText] = useState("");
   const [resText, setResText] = useState("");
+
+  const randomData = ["hey", "hey", "hey"];
 
   function handleChange(event) {
     setSearchText(event.target.value);
@@ -36,7 +46,7 @@ export default function Artists() {
 
         <Button title="Press Me" onPress={sendSearch} />
       </View>
-      <Text></Text>
+      <FlatList data={randomData} renderItem={({ item }) => <ArtistButton />} />
     </View>
   );
 }
