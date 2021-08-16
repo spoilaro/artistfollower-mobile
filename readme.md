@@ -1,5 +1,10 @@
-TODOs
+PRIMARY
+TODO Subscribed artists screen / profile
+TODO Show search results
+TODO Show newest albums on home page
 
-- artists page
+SECONDARY
+TODO Alerts
 
-- settings page
+TERTIARY
+TODO Create design V2
