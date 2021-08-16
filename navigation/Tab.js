@@ -8,6 +8,7 @@ import Home from "../screens/Home";
 
 //Icons
 import { icons, colors } from "../constants";
+import Profile from "../screens/Profile";
 
 //TODO Add right icons
 
@@ -36,6 +37,17 @@ const Tabs = () => {
       <Tab.Screen
         name="Artists"
         component={Artists}
+        options={{
+          tabBarIcon: ({ focused }) => {
+            return (
+              <TabIcon focused={focused} label="Artists" icon={icons.info} />
+            );
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
         options={{
           tabBarIcon: ({ focused }) => {
             return (
