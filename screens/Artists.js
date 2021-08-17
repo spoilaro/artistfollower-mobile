@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { SearchBar } from "react-native-elements/dist/searchbar/SearchBar";
 import {
   Text,
+  Image,
+  TouchableOpacity,
   View,
   TextInput,
   StyleSheet,
@@ -11,6 +14,8 @@ import axios from "axios";
 import ArtistButton from "../components/ArtistButton";
 import { colors } from "../constants";
 import { set } from "react-native-reanimated";
+
+const searchIcon="https://cdn0.iconfinder.com/data/icons/very-basic-2-android-l-lollipop-icon-pack/24/search-512.png";
 
 export default function Artists() {
   const [searchText, setSearchText] = useState("");
@@ -44,14 +49,18 @@ export default function Artists() {
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
-        <TextInput
+        <SearchBar
           style={styles.input}
           placeholder="Type artist name here"
           value={searchText}
           onChange={handleChange}
+          onSubmitEditing={sendSearch}
         />
 
-        <Button title="Press Me" onPress={sendSearch} />
+        {/*<TouchableOpacity>
+          <Image style={styles.button} source={{ uri: searchIcon }} onPress={sendSearch} />
+        </TouchableOpacity>*/}
+        {/*<Button title="->" onPress={sendSearch} />*/}
       </View>
       <FlatList data={resText} renderItem={({ item }) => <ArtistButton name={item.name} image={item.image} />} />
     </View>
@@ -64,12 +73,14 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   input: {
+    color: "#d1d1d1",
     padding: 5,
-    borderWidth: 0.5,
+    //borderWidth: 0.5,
     flex: 3,
   },
   button: {
     flex: 1,
+    backgroundColor: "white"
   },
   inputContainer: {
     flexDirection: "row",
