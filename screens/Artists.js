@@ -10,10 +10,12 @@ import {
 import axios from "axios";
 import ArtistButton from "../components/ArtistButton";
 import { colors } from "../constants";
+import { set } from "react-native-reanimated";
 
 export default function Artists() {
   const [searchText, setSearchText] = useState("");
-  const [resText, setResText] = useState("");
+  const [resText, setResText] = useState([]);
+  const [resImage, setResImage] = useState([]);
 
   const randomData = ["hey", "hey", "hey"];
 
@@ -32,6 +34,11 @@ export default function Artists() {
     );
 
     console.log(response2.data);
+    const resObject={
+      name: response2.data.name,
+      image: response2.data.images[2].url
+    }
+    setResText([resObject]);
   }
 
   return (
@@ -46,7 +53,7 @@ export default function Artists() {
 
         <Button title="Press Me" onPress={sendSearch} />
       </View>
-      <FlatList data={randomData} renderItem={({ item }) => <ArtistButton />} />
+      <FlatList data={resText} renderItem={({ item }) => <ArtistButton name={item.name} image={item.image} />} />
     </View>
   );
 }

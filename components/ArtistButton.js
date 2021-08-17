@@ -15,17 +15,17 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-export default function ArtistButton({ artistData }) {
+export default function ArtistButton({ name, image }) {
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: "row", alignItems: "center", flex: 1 }}>
-        <Image style={styles.image} source={{ uri: imHuman }} />
+        <Image style={styles.image} source={{ uri: image }} />
         <View>
           <Text
             style={{ fontSize: FONTS.size.SEMI_SMALL, marginLeft: 10 }}
             className="artist-name"
           >
-            Artist
+            {name}
           </Text>
         </View>
       </View>
