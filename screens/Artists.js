@@ -26,6 +26,7 @@ export default function Artists() {
 
   function handleChange(event) {
     setSearchText(event.target.value);
+    sendSearch()
   }
 
   async function sendSearch() {
@@ -70,12 +71,13 @@ export default function Artists() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.primary,
-    padding: 10,
+    padding: 5,
   },
   input: {
     color: "#d1d1d1",
-    padding: 5,
-    //borderWidth: 0.5,
+    borderWidth: 0.1,
+    borderRadius: 5,
+    paddingLeft: 5,
     flex: 3,
   },
   button: {
@@ -83,6 +85,6 @@ const styles = StyleSheet.create({
     backgroundColor: "white"
   },
   inputContainer: {
-    flexDirection: "row",
+    //flexDirection: "row",
   },
 });
