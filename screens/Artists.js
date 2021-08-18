@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SearchBar } from "react-native-elements/dist/searchbar/SearchBar";
 import {
   Text,
@@ -15,12 +15,20 @@ import ArtistButton from "../components/ArtistButton";
 import { colors } from "../constants";
 import { set } from "react-native-reanimated";
 
-const searchIcon="https://cdn0.iconfinder.com/data/icons/very-basic-2-android-l-lollipop-icon-pack/24/search-512.png";
+const searchIcon = "https://cdn0.iconfinder.com/data/icons/very-basic-2-android-l-lollipop-icon-pack/24/search-512.png";
 
 export default function Artists() {
   const [searchText, setSearchText] = useState("");
   const [resText, setResText] = useState([]);
-  const [resImage, setResImage] = useState([]);
+
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      console.log(searchText);
+      sendSearch()
+    }, 1000)
+
+    return () => clearTimeout(delayDebounceFn)
+  }, [searchText])
 
   const randomData = ["hey", "hey", "hey"];
 
@@ -39,8 +47,8 @@ export default function Artists() {
       `http://localhost:5001/api/artists/${artistId}`
     );
 
-    console.log(response2.data);
-    const resObject={
+    console.log(response2.data.name);
+    const resObject = {
       name: response2.data.name,
       image: response2.data.images[2].url
     }
