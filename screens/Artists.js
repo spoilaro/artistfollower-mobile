@@ -15,7 +15,8 @@ import ArtistButton from "../components/ArtistButton";
 import { colors } from "../constants";
 import { set } from "react-native-reanimated";
 
-const searchIcon = "https://cdn0.iconfinder.com/data/icons/very-basic-2-android-l-lollipop-icon-pack/24/search-512.png";
+const searchIcon =
+  "https://cdn0.iconfinder.com/data/icons/very-basic-2-android-l-lollipop-icon-pack/24/search-512.png";
 
 export default function Artists() {
   const [searchText, setSearchText] = useState("");
@@ -24,17 +25,17 @@ export default function Artists() {
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       console.log(searchText);
-      sendSearch()
-    }, 1000)
+      sendSearch();
+    }, 1000);
 
-    return () => clearTimeout(delayDebounceFn)
-  }, [searchText])
+    return () => clearTimeout(delayDebounceFn);
+  }, [searchText]);
 
   const randomData = ["hey", "hey", "hey"];
 
   function handleChange(event) {
     setSearchText(event.target.value);
-    sendSearch()
+    //sendSearch()
   }
 
   async function sendSearch() {
@@ -50,8 +51,8 @@ export default function Artists() {
     console.log(response2.data.name);
     const resObject = {
       name: response2.data.name,
-      image: response2.data.images[2].url
-    }
+      image: response2.data.images[2].url,
+    };
     setResText([resObject]);
   }
 
@@ -71,7 +72,12 @@ export default function Artists() {
         </TouchableOpacity>*/}
         {/*<Button title="->" onPress={sendSearch} />*/}
       </View>
-      <FlatList data={resText} renderItem={({ item }) => <ArtistButton name={item.name} image={item.image} />} />
+      <FlatList
+        data={resText}
+        renderItem={({ item }) => (
+          <ArtistButton name={item.name} image={item.image} />
+        )}
+      />
     </View>
   );
 }
@@ -90,7 +96,7 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
-    backgroundColor: "white"
+    backgroundColor: "white",
   },
   inputContainer: {
     //flexDirection: "row",
