@@ -17,7 +17,7 @@ const Tab = createBottomTabNavigator();
 const Tabs = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Artists"
+      initialRouteName="Profile"
       tabBarOptions={{
         showLabel: false,
         style: {
