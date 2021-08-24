@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { SearchBar } from "react-native-elements/dist/searchbar/SearchBar";
 import {
-  Text,
-  Image,
-  TouchableOpacity,
   View,
-  TextInput,
   StyleSheet,
-  Button,
   FlatList,
+  Text
 } from "react-native";
 import axios from "axios";
 import ArtistButton from "../components/ArtistButton";
 import { colors } from "../constants";
-import { set } from "react-native-reanimated";
+import { SwipeListView } from "react-native-swipe-list-view"
+import { TouchableOpacity } from "react-native";
 
 const searchIcon =
   "https://cdn0.iconfinder.com/data/icons/very-basic-2-android-l-lollipop-icon-pack/24/search-512.png";
 
 export default function Artists() {
   const [searchText, setSearchText] = useState("");
-  const [resText, setResText] = useState([{name:"Artist",image: searchIcon}]);
+  const [resText, setResText] = useState([{ key: 1, name: "Artist", image: searchIcon }, { key: 2 }]);
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
@@ -72,11 +69,30 @@ export default function Artists() {
         </TouchableOpacity>*/}
         {/*<Button title="->" onPress={sendSearch} />*/}
       </View>
-      <FlatList
+      <SwipeListView
         data={resText}
+        ItemSeparatorComponent={() => (<View style={{ height: 10 }} />)}
         renderItem={({ item }) => (
-          <ArtistButton name={item.name} image={item.image} />
+          /*           <ArtistButton name={item.name} image={item.image} /> */
+          <TouchableOpacity style={{
+            height: 50,
+            backgroundColor: "red"
+          }} >
+            <Text style={{ color: "white", fontSize: 30, textAlign: "center" }} >Swipe</Text>
+          </TouchableOpacity>
         )}
+        renderHiddenItem={() => (
+          <View style={{
+            backgroundColor: "blue",
+            height: 50,
+            alignItems: "flex-end",
+            justifyContent: "center",
+            paddingRight: 10
+          }} >
+            <Text style={{ color: "white" }} >Left</Text>
+          </View>
+        )}
+        rightOpenValue={-75}
       />
     </View>
   );
@@ -86,6 +102,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.primary,
     padding: 5,
+    height: "100%"
   },
   input: {
     color: "#d1d1d1",
