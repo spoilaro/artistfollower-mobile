@@ -20,7 +20,7 @@ const searchIcon =
 
 export default function Artists() {
   const [searchText, setSearchText] = useState("");
-  const [resText, setResText] = useState([]);
+  const [resText, setResText] = useState([{name:"Artist",image: searchIcon}]);
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {

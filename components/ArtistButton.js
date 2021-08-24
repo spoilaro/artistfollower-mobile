@@ -22,7 +22,11 @@ export default function ArtistButton({ name, image }) {
         <Image style={styles.image} source={{ uri: image }} />
         <View>
           <Text
-            style={{ fontSize: FONTS.size.SEMI_SMALL, marginLeft: 10, color: "#d1d1d1" }}
+            style={{
+              fontSize: FONTS.size.SEMI_SMALL,
+              marginLeft: 10,
+              color: "#d1d1d1",
+            }}
             className="artist-name"
           >
             {name}
@@ -61,3 +65,25 @@ const styles = StyleSheet.create({
     marginLeft: "80%",
   },
 });
+
+//OLD BUTTON:
+{
+  /* <View style={styles.container}>
+      <View style={{ flexDirection: "row", alignItems: "center", flex: 1 }}>
+        <Image style={styles.image} source={{ uri: image }} />
+        <View>
+          <Text
+            style={{ fontSize: FONTS.size.SEMI_SMALL, marginLeft: 10, color: "#d1d1d1" }}
+            className="artist-name"
+          >
+            {name}
+          </Text>
+        </View>
+      </View>
+      <View style={{ marginRight: 10 }}>
+        <TouchableOpacity>
+          <Image style={styles.addimage} source={{ uri: imPlus }} />
+        </TouchableOpacity>
+      </View>
+    </View> */
+}
