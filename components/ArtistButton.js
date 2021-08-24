@@ -22,7 +22,7 @@ export default function ArtistButton({ name, image }) {
         <Image style={styles.image} source={{ uri: image }} />
         <View>
           <Text
-            style={{ fontSize: FONTS.size.SEMI_SMALL, marginLeft: 10 }}
+            style={{ fontSize: FONTS.size.SEMI_SMALL, marginLeft: 10, color: "#d1d1d1" }}
             className="artist-name"
           >
             {name}
@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
   },
   image: {
     margin: 5,
-    width: 30,
-    height: 30,
+    width: 40,
+    height: 40,
     backgroundColor: "white",
   },
   addimage: {
