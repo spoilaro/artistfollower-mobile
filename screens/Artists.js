@@ -11,13 +11,14 @@ import ArtistButton from "../components/ArtistButton";
 import { colors } from "../constants";
 import { SwipeListView } from "react-native-swipe-list-view"
 import { TouchableOpacity } from "react-native";
+import { color } from "react-native-elements/dist/helpers";
 
 const searchIcon =
   "https://cdn0.iconfinder.com/data/icons/very-basic-2-android-l-lollipop-icon-pack/24/search-512.png";
 
 export default function Artists() {
   const [searchText, setSearchText] = useState("");
-  const [resText, setResText] = useState([{ key: 1, name: "Artist", image: searchIcon }, { key: 2 }]);
+  const [resText, setResText] = useState([/* { key: 1, name: "Artist", image: searchIcon }, { key: 2 } */]);
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
@@ -76,20 +77,21 @@ export default function Artists() {
           /*           <ArtistButton name={item.name} image={item.image} /> */
           <TouchableOpacity style={{
             height: 50,
-            backgroundColor: "red"
+            backgroundColor: colors.primary
           }} >
-            <Text style={{ color: "white", fontSize: 30, textAlign: "center" }} >Swipe</Text>
+            <ArtistButton name={item.name} image={item.image} />
+            {/* <Text style={{ color: "white", fontSize: 30, textAlign: "center" }} >Swipe</Text> */}
           </TouchableOpacity>
         )}
         renderHiddenItem={() => (
           <View style={{
-            backgroundColor: "blue",
+            backgroundColor: "#666666",
             height: 50,
             alignItems: "flex-end",
             justifyContent: "center",
-            paddingRight: 10
+            paddingRight: 10,
           }} >
-            <Text style={{ color: "white" }} >Left</Text>
+            <Text style={{ color: "white" }} >Follow</Text>
           </View>
         )}
         rightOpenValue={-75}

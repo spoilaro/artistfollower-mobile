@@ -34,9 +34,9 @@ export default function ArtistButton({ name, image }) {
         </View>
       </View>
       <View style={{ marginRight: 10 }}>
-        <TouchableOpacity>
+        {/* <TouchableOpacity>
           <Image style={styles.addimage} source={{ uri: imPlus }} />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </View>
   );
