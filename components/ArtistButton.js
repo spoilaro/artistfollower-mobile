@@ -45,9 +45,7 @@ export default function ArtistButton({ name, image }) {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    borderWidth: 1,
-    borderLeftWidth: 0,
-    borderRightWidth: 0,
+    borderBottomWidth: 1,
     alignItems: "center",
   },
   image: {

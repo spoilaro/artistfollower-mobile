@@ -51,7 +51,7 @@ const Tabs = () => {
         options={{
           tabBarIcon: ({ focused }) => {
             return (
-              <TabIcon focused={focused} label="Artists" icon={icons.info} />
+              <TabIcon focused={focused} label="Profile" icon={icons.info} />
             );
           },
         }}

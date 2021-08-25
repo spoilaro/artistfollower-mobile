@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { SearchBar } from "react-native-elements/dist/searchbar/SearchBar";
-import {
-  View,
-  StyleSheet,
-  FlatList,
-  Text
-} from "react-native";
+import { View, StyleSheet, FlatList, Text } from "react-native";
 import axios from "axios";
 import ArtistButton from "../components/ArtistButton";
 import { colors } from "../constants";
-import { SwipeListView } from "react-native-swipe-list-view"
+import { SwipeListView } from "react-native-swipe-list-view";
 import { TouchableOpacity } from "react-native";
 import { color } from "react-native-elements/dist/helpers";
+import { TouchableHighlight } from "react-native";
 
 const searchIcon =
   "https://cdn0.iconfinder.com/data/icons/very-basic-2-android-l-lollipop-icon-pack/24/search-512.png";
 
 export default function Artists() {
   const [searchText, setSearchText] = useState("");
-  const [resText, setResText] = useState([/* { key: 1, name: "Artist", image: searchIcon }, { key: 2 } */]);
+  const [resText, setResText] = useState([
+    /* { key: 1, name: "Artist", image: searchIcon }, { key: 2 } */
+  ]);
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
@@ -54,47 +52,51 @@ export default function Artists() {
     setResText([resObject]);
   }
 
+  function followClick() {
+    console.log("Clicked");
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
         <SearchBar
           style={styles.input}
+          inputStyle={{ backgroundColor: "#454545" }}
+          containerStyle={{
+            backgroundColor: "#383838",
+            borderWidth: 1,
+            borderRadius: 2,
+          }}
           placeholder="Type artist name here"
           value={searchText}
           onChange={handleChange}
           onSubmitEditing={sendSearch}
         />
-
-        {/*<TouchableOpacity>
-          <Image style={styles.button} source={{ uri: searchIcon }} onPress={sendSearch} />
-        </TouchableOpacity>*/}
-        {/*<Button title="->" onPress={sendSearch} />*/}
       </View>
       <SwipeListView
         data={resText}
-        ItemSeparatorComponent={() => (<View style={{ height: 10 }} />)}
+        ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
         renderItem={({ item }) => (
-          /*           <ArtistButton name={item.name} image={item.image} /> */
-          <TouchableOpacity style={{
-            height: 50,
-            backgroundColor: colors.primary
-          }} >
+          <View style={{ backgroundColor: colors.primary }}>
             <ArtistButton name={item.name} image={item.image} />
-            {/* <Text style={{ color: "white", fontSize: 30, textAlign: "center" }} >Swipe</Text> */}
-          </TouchableOpacity>
-        )}
-        renderHiddenItem={() => (
-          <View style={{
-            backgroundColor: "#666666",
-            height: 50,
-            alignItems: "flex-end",
-            justifyContent: "center",
-            paddingRight: 10,
-          }} >
-            <Text style={{ color: "white" }} >Follow</Text>
           </View>
         )}
-        rightOpenValue={-75}
+        renderHiddenItem={() => (
+          <View
+            style={{
+              backgroundColor: "#666666",
+              height: 50,
+              alignItems: "flex-end",
+              justifyContent: "center",
+              paddingRight: 10,
+            }}
+          >
+            <TouchableOpacity onPress={followClick}>
+              <Text style={{ color: "white" }}>Follow</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+        rightOpenValue={-62}
       />
     </View>
   );
@@ -103,8 +105,8 @@ export default function Artists() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.primary,
-    padding: 5,
-    height: "100%"
+    //padding: 5,
+    height: "100%",
   },
   input: {
     color: "#d1d1d1",
@@ -117,7 +119,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
   },
-  inputContainer: {
-    //flexDirection: "row",
-  },
+  inputContainer: {},
 });
+
+//Old render of a artistbutton:
+/*  <TouchableOpacity style={{
+            height: 50,
+            backgroundColor: colors.primary
+          }} >
+            <ArtistButton name={item.name} image={item.image}/>
+          </TouchableOpacity> */
